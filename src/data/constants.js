@@ -7,6 +7,7 @@ import job_portal from "../images/logo/job_portal.png";
 import portfolio_1 from "../images/logo/portfolio_1.jpg";
 import portfolio_2 from "../images/logo/portfolio_2.png";
 import crypto_cosmos from "../images/logo/crypto_cosmos.png";
+import musika from "../images/logo/musika.png";
 
 // IMPORTED ICONS FROM IMAGES
 
@@ -41,6 +42,10 @@ import visualstudio from "../images/icons/visualstudio.png";
 import paymongo from "../images/icons/paymongo.png";
 import styled from "../images/icons/styled.png";
 import three from "../images/icons/three.png";
+import shadcn from "../images/icons/shadcn.png";
+import socket from "../images/icons/socket.png";
+import zustand from "../images/icons/zustand.png";
+import clerk from "../images/icons/clerk.png";
 
 // ABOUT ME
 
@@ -130,6 +135,34 @@ export const experiences = [
 // PROJECTS
 
 export const projects = [
+  {
+    id: 5,
+    title: "Musika",
+    date: "January 2025 - Present",
+    description:
+      "Musika is a sophisticated music player web application developed with a robust tech stack, including React, TypeScript, Tailwind CSS, Shadcn, and Zustand for the frontend, and Node.js, Express.js, MongoDB, Socket.IO, and JavaScript for the backend. Key features include seamless music playback with next/previous song controls, volume adjustment, and an intuitive admin dashboard for managing albums and songs. Leveraging Socket.IO, Musika enables real-time features such as online/offline status, user activity tracking, and a live chat integrated within the application. Utilizing Clerk for secure authentication, Musika ensures a seamless and secure user experience while providing a rich and engaging music listening experience.",
+    image: musika,
+    tags: [
+      { name: "HTML", icon: html },
+      { name: "CSS", icon: css },
+      { name: "JavaScript", icon: js },
+      { name: "React JS", icon: react },
+      { name: "TypeScript", icon: ts },
+      { name: "Zustand", icon: zustand },
+      { name: "Shadcn UI", icon: shadcn },
+      { name: "Node JS", icon: node },
+      { name: "Express JS", icon: express },
+      { name: "MongoDB", icon: mongodb },
+      { name: "Socket IO", icon: socket },
+      { name: "Clerk", icon: clerk },
+      { name: "Visual Studio Code", icon: vscode },
+      { name: "NPM", icon: npm },
+      { name: "Vite", icon: vite },
+    ],
+    source: "",
+    demo: "",
+    status: "in-progress",
+  },
   {
     id: 5,
     title: "Crypto Cosmos",
