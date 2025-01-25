@@ -161,7 +161,7 @@ export const projects = [
     ],
     source: "",
     demo: "",
-    status: "in-progress",
+    status: "inprogress",
   },
   {
     id: 5,
