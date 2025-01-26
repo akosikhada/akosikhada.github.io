@@ -27,32 +27,18 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
+  padding: 80px 30px;
   z-index: 1;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
-    padding: 7.5rem 1rem;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 85% 97%, 0 100%);
-    justify-content: flex-start;
+    padding: 32px 16px;
   }
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    padding: 6.25rem 1.875rem;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 75% 96%, 0 100%);
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    padding: 8.125rem 2.5rem;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    padding: 9.375rem 3.125rem;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 70% 95%, 0 100%);
+    padding: 66px 16px;
   }
 `;
 
@@ -63,7 +49,6 @@ const HeroInnerContainer = styled.div`
   align-items: center;
   width: 100%;
   max-width: 1440px;
-  padding: 1rem 1rem;
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
@@ -73,17 +58,6 @@ const HeroInnerContainer = styled.div`
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     flex-direction: column;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    flex-direction: row;
-    gap: 2rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    flex-direction: row;
   }
 `;
 
@@ -185,9 +159,9 @@ const HeroRightContainer = styled.div`
 
 const Title = styled.div`
   font-weight: 900;
-  font-size: 3.25rem;
+  font-size: 2.5rem;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 1.4;
+  line-height: 68px;
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
@@ -199,24 +173,10 @@ const Title = styled.div`
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 2.625rem;
     text-align: center;
-    line-height: 1.2;
-    margin-bottom: 0.9375rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 3rem;
-    line-height: 1.4;
-    margin-bottom: 1.25rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    font-size: 3.25rem;
-    line-height: 1.4;
-    margin-bottom: 1.5625rem;
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 8px;
   }
 
   span {
@@ -255,71 +215,29 @@ const Title = styled.div`
 
 const TextLoop = styled.div`
   font-weight: 600;
-  font-size: 2.25rem;
+  font-size: 32px;
   display: flex;
-  gap: 1rem;
+  gap: 12px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 4.5rem;
-  align-items: center;
+  line-height: 68px;
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
-    font-size: 1.25rem;
-    line-height: 1.5rem;
-    gap: 0.75rem;
-    justify-content: center;
+    font-size: 22px;
+    line-height: 48px;
+    margin-bottom: 16px;
     text-align: center;
-    margin-top: 0.5rem;
   }
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 1.75rem;
-    line-height: 2rem;
-    gap: 0.875rem;
-    justify-content: center;
     text-align: center;
-    margin-top: 0.75rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 2rem;
-    line-height: 2.5rem;
-    gap: 1rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    font-size: 2.25rem;
-    line-height: 3rem;
-    gap: 1rem;
   }
 `;
 
 const Span = styled.div`
   cursor: pointer;
   color: ${({ theme }) => theme.primary};
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    font-size: 1.25rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 1.75rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 2rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    font-size: 2.25rem;
-  }
 `;
 
 const SubTitle = styled.div`
@@ -335,7 +253,7 @@ const SubTitle = styled.div`
     font-size: 1rem;
     letter-spacing: 0.0625rem;
     margin-bottom: 1.5rem;
-    text-align: justify;
+    text-align: center;
   }
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
@@ -343,23 +261,7 @@ const SubTitle = styled.div`
     font-size: 1.25rem;
     letter-spacing: 0.09375rem;
     margin-bottom: 1.75rem;
-    text-align: justify;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 1.375rem;
-    letter-spacing: 0.1125rem;
-    margin-bottom: 2rem;
-    text-align: justify;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    font-size: 1.5rem;
-    letter-spacing: 0.12rem;
-    margin-bottom: 2.5rem;
-    text-align: justify;
+    text-align: center;
   }
 `;
 
@@ -424,8 +326,8 @@ const ResumeButton = styled.a`
 
 const ImageWrapper = styled.div`
   position: relative;
-  width: 28.125rem;
-  height: 28.125rem;
+  width: 350px;
+  height: 350px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -448,27 +350,15 @@ const ImageWrapper = styled.div`
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
-    width: 15.625rem;
-    height: 15.625rem;
+    width: 250px;
+    height: 250px;
   }
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    width: 23.75rem;
-    height: 23.75rem;
+    width: 300px;
+    height: 300px;
     margin-bottom: 1rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    width: 25rem;
-    height: 25rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    width: 28.125rem;
-    height: 28.125rem;
   }
 `;
 
@@ -494,47 +384,25 @@ const Img = styled.img`
 const HeroBg = styled.div`
   position: absolute;
   display: flex;
-  justify-content: flex-end;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  justify-content: end;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  max-width: 90rem;
+  max-width: 1360px;
   overflow: hidden;
-  padding: 0 1.875rem;
-  z-index: -1;
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    justify-content: center;
-    padding: 0;
-    width: 90%;
-    height: 90%;
-  }
+  padding: 40px 5px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
 
   /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     justify-content: center;
-    padding: 0 1rem;
-    width: 95%;
-    height: 95%;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    padding: 0 1.5rem;
-    width: 98%;
-    height: 98%;
-    transform: translate(-43%, -35%);
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    padding: 0 1.875rem;
-    width: 100%;
-    height: 100%;
-    transform: translate(-43%, -30%);
+    padding: 0 0;
   }
 `;
 
@@ -542,7 +410,7 @@ const SocialMediaIcons = styled.div`
   display: flex;
   justify-content: start;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 
   @media only screen and (max-width: 767px) {
     gap: 0.75rem;
@@ -581,18 +449,6 @@ const RotatingIconsBackground = styled.div`
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     width: 31.25rem;
     height: 31.25rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    width: 34.375rem;
-    height: 34.375rem;
-  }
-
-  /* ========== Desktop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1440px) {
-    width: 37.5rem;
-    height: 37.5rem;
   }
 
   @keyframes rotate {
@@ -642,20 +498,6 @@ const RotatingIconsBackground = styled.div`
       padding: 0.3125rem;
     }
 
-    /* ========== Laptop Devices (portrait and landscape) ========== */
-    @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-      width: 2.5rem;
-      height: 2.5rem;
-      padding: 0.34375rem;
-    }
-
-    /* ========== Desktop Devices (portrait and landscape) ========== */
-    @media only screen and (min-width: 1440px) {
-      width: 2.8125rem;
-      height: 2.8125rem;
-      padding: 0.375rem;
-    }
-
     &:hover {
       transform: scale(1.2) rotate(-10deg);
       filter: drop-shadow(0 0 0.9375rem rgba(138, 43, 226, 0.9)) brightness(1.3);
@@ -666,7 +508,7 @@ const RotatingIconsBackground = styled.div`
   ${[...Array(8)]
     .map((_, i) => {
       const angle = i * 45 * (Math.PI / 180);
-      const baseRadius = 17.5;
+      const baseRadius = 17;
       const x = Math.cos(angle) * baseRadius;
       const y = Math.sin(angle) * baseRadius;
 
@@ -688,23 +530,12 @@ const RotatingIconsBackground = styled.div`
           left: calc(50% + ${x * 0.9}rem);
           top: calc(50% + ${y * 0.9}rem);
         }
-
-        /* ========== Laptop Devices (portrait and landscape) ========== */
-        @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-          left: calc(50% + ${x * 0.85}rem);
-          top: calc(50% + ${y * 0.85}rem);
-        }
-
-        /* ========== Desktop Devices (portrait and landscape) ========== */
-        @media only screen and (min-width: 1440px) {
-          left: calc(50% + ${x}rem);
-          top: calc(50% + ${y}rem);
-        }
       }
     `;
     })
     .join("")}
 `;
+
 
 const Hero = () => {
   const helloText = "Hello, I'm";
