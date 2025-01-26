@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { Bio } from "../../data/constants";
 import Typewriter from "typewriter-effect";
-import miguel_enrique_dasalla from "../../images/miguel_enrique_dasalla.jpg";
 import HeroBgAnimation from "../HeroBgAnimation";
 import { motion } from "framer-motion";
 import {
@@ -602,7 +601,7 @@ const Hero = () => {
                     <img src="/assets/icons/next.png" alt="Next JS" />
                   </RotatingIconsBackground>
                   <Img
-                    src={miguel_enrique_dasalla}
+                    src="/miguel_enrique_dasalla.jpg"
                     alt="Miguel Enrique Dasalla"
                   />
                 </ImageWrapper>
