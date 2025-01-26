@@ -6,6 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
+import FolderIcon from "@mui/icons-material/Folder";
 
 const Container = styled.div`
   width: 100%;
@@ -15,6 +16,7 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
+  padding: 60px 20px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 98%, 0 100%);
 `;
 
@@ -26,7 +28,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1200px;
-  padding: 80px 20px;
+  padding: 40px 20px;
   gap: 12px;
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
@@ -41,32 +43,27 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 3.5rem;
+  font-size: 56px;
   text-align: center;
-  font-weight: 900;
-  margin-top: 20px;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    font-size: 2rem;
-    margin-top: 1rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 2.5rem;
-    margin-top: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    font-size: 48px;
   }
 `;
 
 const Desc = styled.div`
-  font-size: 1.2rem;
-  font-weight: normal;
+  font-size: 1rem;
   text-align: center;
-  width: 100%;
-  margin-bottom: 50px;
+  font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
+  margin-bottom: 0.5rem;
 `;
 
 const StatusLegend = styled.div`
@@ -206,6 +203,14 @@ const Arrow = styled.div`
   }
 `;
 
+const StyledFolderIcon = styled(FolderIcon)`
+  font-size: 56px !important;
+  color: ${({ theme }) => theme.icon_color};
+  @media (max-width: 768px) {
+    font-size: 40px !important;
+  }
+`;
+
 const Projects = ({ openModal, setOpenModal }) => {
   const [sliderRef, setSliderRef] = useState(null);
 
@@ -256,10 +261,13 @@ const Projects = ({ openModal, setOpenModal }) => {
   return (
     <Container id="Projects">
       <Wrapper>
-        <Title>Projects.</Title>
+        <Title>
+          <StyledFolderIcon />
+          Projects
+        </Title>
         <Desc>
           My portfolio highlights my skills and experience through concrete
-          examples of my work. Each project, linked to its code repository and
+          examples of my Folder. Each project, linked to its code repository and
           live demo, showcases my ability to tackle complex challenges, leverage
           diverse technologies, and manage projects efficiently.
         </Desc>
