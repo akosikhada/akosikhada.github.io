@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import BuildIcon from "@mui/icons-material/Build";
+import WorkIcon from "@mui/icons-material/Work";
+import FolderIcon from "@mui/icons-material/Folder";
 
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
@@ -12,7 +17,7 @@ const Nav = styled.div`
   position: sticky;
   top: 0;
   z-index: 10;
-  color: #fff;
+  color: white;
 `;
 
 const ColorText = styled.div`
@@ -67,9 +72,9 @@ const NavItems = styled.ul`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 2rem;
-  padding: 0 0.375rem;
+  justify-content: center;
+  gap: 32px;
+  padding: 0 6px;
   list-style: none;
 
   @media only screen and (max-width: 767px) {
@@ -86,6 +91,9 @@ export const NavLink = styled.a`
   transition: color 0.3s ease;
   text-align: center;
   width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
   @media only screen and (max-width: 767px) {
     padding: 0.25rem 0;
@@ -216,7 +224,7 @@ const MobileMenu = styled.ul`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return (
+  return (  
     <Nav>
       <NavbarContainer>
         <NavLogo>
@@ -238,28 +246,38 @@ const Navbar = () => {
         </MobileIcon>
 
         <NavItems>
-          <NavLink href="#Home">Home</NavLink>
-          <NavLink href="#About">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
+          <NavLink href="#Home">
+            <HomeIcon /> Home
+          </NavLink>
+          <NavLink href="#About">
+            <InfoIcon /> About
+          </NavLink>
+          <NavLink href="#Skills">
+            <BuildIcon /> Skills
+          </NavLink>
+          <NavLink href="#Experience">
+            <WorkIcon /> Experience
+          </NavLink>
+          <NavLink href="#Projects">
+            <FolderIcon /> Projects
+          </NavLink>
         </NavItems>
 
         <MobileMenu className={isOpen ? "open" : ""}>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Home">
-            Home
+            <HomeIcon /> Home
           </NavLink>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
-            About
+            <InfoIcon /> About
           </NavLink>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
-            Skills
+            <BuildIcon /> Skills
           </NavLink>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
-            Experience
+            <WorkIcon /> Experience
           </NavLink>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
-            Projects
+            <FolderIcon /> Projects
           </NavLink>
         </MobileMenu>
       </NavbarContainer>
