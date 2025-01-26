@@ -6,7 +6,7 @@
 
 <div align="center">
 
-<img src="./public/public/assets/icons/html.png" alt="HTML" width="50">
+<img src="./public/assets/icons/html.png" alt="HTML" width="50">
 <img src="./public/assets/icons/css.png" alt="CSS" width="50">
 <img src="./public/assets/icons/js.png" alt="JavaScript" width="50">
 <img src="./public/assets/icons/react.png" alt="React" width="50">
