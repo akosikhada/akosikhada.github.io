@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1200px;
-  gap: 40px;
+  gap: 0.75rem;
   padding: 40px 20px;
   background-color: ${({ theme }) => theme.background_primary};
   border-radius: 12px;
@@ -51,7 +51,7 @@ const Title = styled.div`
 `;
 
 const Desc = styled.div`
-  font-size: 20px;
+  font-size: 1rem;
   text-align: center;
   font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
