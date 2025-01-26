@@ -137,12 +137,12 @@ export const experiences = [
 
 export const projects = [
   {
-    id: 5,
+    id: 6,
     title: "Musika",
     date: "January 2025 - Present",
     description:
       "Musika is a sophisticated music player web application developed with a robust tech stack, including React, TypeScript, Tailwind CSS, Shadcn, and Zustand for the frontend, and Node.js, Express.js, MongoDB, Socket.IO, and JavaScript for the backend. Key features include seamless music playback with next/previous song controls, volume adjustment, and an intuitive admin dashboard for managing albums and songs. Leveraging Socket.IO, Musika enables real-time features such as online/offline status, user activity tracking, and a live chat integrated within the application. Utilizing Clerk for secure authentication, Musika ensures a seamless and secure user experience while providing a rich and engaging music listening experience.",
-    image: "/assets/images/musika.png",
+    image: "/assets/logo/musika.png",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
@@ -170,7 +170,7 @@ export const projects = [
     date: "January 2025",
     description:
       "Crypto Cosmos is a dynamic and user-friendly web application developed using HTML, CSS, JavaScript, and React.js, designed to provide real-time insights into the cryptocurrency market. Leveraging the comprehensive data provided by the CoinGecko API, the application offers users access to a wide range of cryptocurrencies, including real-time pricing information, market trends, and historical data. With its intuitive interface and robust data integration, Crypto Cosmos empowers users to make informed decisions and stay abreast of the ever-evolving cryptocurrency landscape. This application serves as a valuable resource for both novice and experienced cryptocurrency enthusiasts, providing a user-friendly platform to explore and understand the dynamic world of cryptocurrencies.",
-    image: "/assets/images/crypto_cosmos.png",
+    image: "/assets/logo/crypto_cosmos.png",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
@@ -194,7 +194,7 @@ export const projects = [
     date: "January 2025 - Present",
     description:
       "This portfolio website is a meticulously crafted online showcase built with TypeScript, Next.js, and Tailwind CSS, ensuring high code quality, optimal performance, and a visually stunning user experience. Leveraging the power of Framer Motion, the website incorporates smooth and engaging animations that enhance user interaction and create a dynamic and immersive presentation. Built with a focus on accessibility and user-friendliness, the website utilizes the Simplicity design system to maintain a consistent and elegant aesthetic across all pages. Furthermore, the website is fully responsive, adapting seamlessly to any screen size for an optimal viewing experience on desktops, tablets, and mobile devices.",
-    image: "/assets/images/portfolio_2.png",
+    image: "/assets/logo/portfolio_2.png",
     tags: [
       { name: "TypeScript", icon: "/assets/icons/ts.png" },
       { name: "Next JS", icon: "/assets/icons/next.png" },
@@ -216,7 +216,7 @@ export const projects = [
     date: "January 2025 - Present",
     description:
       "This job portal is a full-stack web application developed using the MERN stack, comprising MongoDB, Express.js, React.js, and Node.js. It provides a user-friendly platform for job seekers to browse and apply for available positions, while enabling employers to easily post job openings and manage applications. The application leverages the power of React.js for a dynamic and interactive user interface, enhanced by the sleek and modern styling of Tailwind CSS. By utilizing the MERN stack and a robust database like MongoDB, this job portal offers a scalable and efficient solution for connecting job seekers with employers in the digital age.",
-    image: "/assets/images/job_portal.png",
+    image: "/assets/logo/job_portal.png",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
@@ -243,7 +243,7 @@ export const projects = [
     date: "November 2024 - December 2024",
     description:
       "This portfolio website is a visually captivating and immersive online showcase built with React JS, styled-components, Framer Motion, Three.js, and Material UI. Designed with a focus on user experience, the website is fully responsive across all devices, ensuring seamless viewing on desktops, tablets, and smartphones. Utilizing Framer Motion, I've incorporated smooth and engaging animations that bring the portfolio to life, while Three.js adds a touch of interactive 3D elements. Material UI provides a consistent and professional aesthetic, further enhancing the overall user experience.",
-    image: "/assets/images/portfolio_1.png",
+    image: "/assets/logo/portfolio_1.jpg",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
@@ -267,7 +267,7 @@ export const projects = [
     date: "September 2024 - December 2024",
     description:
       "The UNILINK: Academic Community Web Application is an interactive, web-based platform designed specifically for academic institutions Its primary goal is to enhance the management of student information, streamline course scheduling, and facilitate accurate grade viewing. Acting as a comprehensive Student Information System (SIS), UNILINK unites essential academic management tasks into a single, integrated platform. A subsystem of the UNILINK: Academic Community Web Application, designed to streamline student information management and enhance administrative processes.",
-    image: "/assets/images/unilink.png",
+    image: "/assets/logo/unilink.png",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
@@ -289,7 +289,7 @@ export const projects = [
     date: "September 2024 - December 2024",
     description:
       "KOPIBARA is a modern web-based coffee ordering system developed by the KPL Team as part of the IPT102 - Integrative Programming and Technologies 2 course. Built with ASP.NET Core 8.0, it offers a seamless experience for customers to browse and order a variety of coffee beverages, including both hot and iced options. KOPIBARA empowers customers with a secure and convenient payment gateway powered by Paymongo, ensuring a smooth and hassle-free checkout process. Additionally, the system leverages Entity Framework Core to streamline data access and manipulation, facilitating efficient order management and inventory control.",
-    image: "/assets/images/kopibara.png",
+    image: "/assets/logo/kopibara.png",
     tags: [
       { name: "HTML", icon: "/assets/icons/html.png" },
       { name: "CSS", icon: "/assets/icons/css.png" },
