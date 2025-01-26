@@ -6,17 +6,18 @@
 
 <div align="center">
 
-<img src="./src/images/icons/html.png" alt="HTML" width="50">
-<img src="./src/images/icons/css.png" alt="CSS" width="50">
-<img src="./src/images/icons/js.png" alt="JavaScript" width="50">
-<img src="./src/images/icons/react.png" alt="React" width="50">
-<img src="./src/images/icons/three.png" alt="Three JS" width="50">
-<img src="./src/images/icons/framer.png" alt="Framer Motion" width="50">
-<img src="./src/images/icons/styled.png" alt="Styled Components" width="50">
-<img src="./src/images/icons/mui.png" alt="Material UI" width="50">
-<img src="./src/images/icons/vscode.png" alt="Visual Studio Code" width="50">
-<img src="./src/images/icons/git.png" alt="Git" width="50">
-<img src="./src/images/icons/github.png" alt="Github" width="50">
-<img src="./src/images/icons/npm.png" alt="NPM" width="50">
+<img src="/assets/icons/html.png" alt="HTML" width="50">
+<img src="/assets/icons/css.png" alt="CSS" width="50">
+<img src="/assets/icons/js.png" alt="JavaScript" width="50">
+<img src="/assets/icons/react.png" alt="React" width="50">
+<img src="/assets/icons/three.png" alt="Three JS" width="50">
+<img src="/assets/icons/framer.png" alt="Framer Motion" width="50">
+<img src="/assets/icons/styled.png" alt="Styled Components" width="50">
+<img src="/assets/icons/mui.png" alt="Material UI" width="50">
+<img src="/assets/icons/vscode.png" alt="Visual Studio Code" width="50">
+<img src="/assets/icons/git.png" alt="Git" width="50">
+<img src="/assets/icons/github.png" alt="Github" width="50">
+<img src="/assets/icons/npm.png" alt="NPM" width="50">
 
 </div>
+
