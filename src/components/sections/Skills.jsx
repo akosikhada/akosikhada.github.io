@@ -87,7 +87,6 @@ const SkillGrid = styled.div`
   align-items: center;
   gap: 24px;
   width: 100%;
-
   @media (max-width: 768px) {
     gap: 16px;
   }
@@ -103,7 +102,6 @@ const SkillItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
   transition: transform 0.3s ease, box-shadow 0.3s ease,
     background-color 0.3s ease;
   cursor: help;
@@ -127,6 +125,11 @@ const SkillImage = styled.img`
 
   ${SkillItem}:hover & {
     transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    width: 30px;
+    height: 30px;
   }
 `;
 
