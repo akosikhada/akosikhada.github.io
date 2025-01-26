@@ -5,6 +5,7 @@ import { VerticalTimeline } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import ExperienceCard from "../cards/ExperienceCard";
 import EarthCanvas from "../canvas/Earth";
+import WorkIcon from "@mui/icons-material/Work";
 
 const Container = styled.div`
   width: 100%;
@@ -14,6 +15,7 @@ const Container = styled.div`
   position: relative;
   z-index: 1;
   align-items: center;
+  padding: 60px 20px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 98%, 0 100%);
 `;
 
@@ -25,7 +27,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   width: 100%;
   max-width: 1440px;
-  padding: 80px 20px;
+  padding: 40px 20px;
   gap: 0.75rem;
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
@@ -47,27 +49,18 @@ const Wrapper = styled.div`
 `;
 
 const Title = styled.div`
-  font-size: 3.5rem;
+  font-size: 56px;
   text-align: center;
-  font-weight: 900;
-  margin-top: 1.25rem;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    font-size: 2rem;
-    margin-top: 1rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 2.5rem;
-    margin-top: 1.125rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    font-size: 48px;
   }
 `;
 
@@ -95,11 +88,22 @@ const EarthCanvasContainer = styled.div`
   height: 100%;
 `;
 
+const StyledWorkIcon = styled(WorkIcon)`
+  font-size: 56px !important;
+  color: ${({ theme }) => theme.icon_color};
+  @media (max-width: 768px) {
+    font-size: 40px !important;
+  }
+`;
+
 const Experience = () => {
   return (
     <Container id="Experience">
       <Wrapper>
-        <Title>Experience.</Title>
+        <Title>
+          <StyledWorkIcon />
+          Experience
+        </Title>
         <Desc>WHAT I HAVE DONE SO FAR</Desc>
         <VerticalTimeline>
           {experiences.map((experience, index) => (
