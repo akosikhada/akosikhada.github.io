@@ -51,9 +51,8 @@ import clerk from "../images/icons/clerk.png";
 
 export const Bio = {
   name: "Miguel Enrique Dasalla",
-  roles: ["Programmer", "Web Developer", "Full-Stack Developer"],
-  description:
-    "A passionate and detail-oriented web developer committed to crafting captivating digital experiences. I thrive on staying up-to-date with the latest technologies and frameworks to deliver innovative and user-centric solutions.",
+  roles: ["Group Programmer", "Frontend Developer", "Full-Stack Developer"],
+  description: "Code, coffee, repeat. Turning caffeine into code.",
   github: "https://github.com/Khadalicioso",
   instagram: "https://www.instagram.com/khadalicioso",
   linkedin: "https://www.linkedin.com/in/miguel-enrique-d-856879341/",
