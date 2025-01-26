@@ -206,7 +206,7 @@ const Title = styled.div`
 
 const TextLoop = styled.div`
   font-weight: 600;
-  font-size: 32px;
+  font-size: 30px;
   display: flex;
   gap: 12px;
   color: ${({ theme }) => theme.text_primary};
@@ -214,9 +214,8 @@ const TextLoop = styled.div`
 
   /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
-    font-size: 22px;
+    font-size: 20px;
     line-height: 48px;
-    margin-bottom: 16px;
     text-align: center;
   }
 
