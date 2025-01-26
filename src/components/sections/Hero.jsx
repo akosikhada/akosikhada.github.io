@@ -14,14 +14,6 @@ import StarCanvas from "../canvas/Stars";
 import GithubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import html from "../../images/icons/html.png";
-import css from "../../images/icons/css.png";
-import js from "../../images/icons/js.png";
-import bootstrap from "../../images/icons/bootstrap.png";
-import tailwind from "../../images/icons/tailwind.png";
-import react from "../../images/icons/react.png";
-import ts from "../../images/icons/ts.png";
-import next from "../../images/icons/next.png";
 
 const HeroContainer = styled.div`
   display: flex;
@@ -600,14 +592,14 @@ const Hero = () => {
               <motion.div {...headContentAnimation}>
                 <ImageWrapper>
                   <RotatingIconsBackground>
-                    <img src={html} alt="HTML" />
-                    <img src={css} alt="CSS" />
-                    <img src={js} alt="JavaScript" />
-                    <img src={bootstrap} alt="Bootstrap" />
-                    <img src={tailwind} alt="Tailwind CSS" />
-                    <img src={react} alt="React JS" />
-                    <img src={ts} alt="TypeScript" />
-                    <img src={next} alt="Next JS" />
+                    <img src="/assets/icons/html.png" alt="HTML" />
+                    <img src="/assets/icons/css.png" alt="CSS" />
+                    <img src="/assets/icons/js.png" alt="JavaScript" />
+                    <img src="/assets/icons/bootstrap.png" alt="Bootstrap" />
+                    <img src="/assets/icons/tailwind.png" alt="Tailwind CSS" />
+                    <img src="/assets/icons/react.png" alt="React JS" />
+                    <img src="/assets/icons/ts.png" alt="TypeScript" />
+                    <img src="/assets/icons/next.png" alt="Next JS" />
                   </RotatingIconsBackground>
                   <Img
                     src={miguel_enrique_dasalla}
