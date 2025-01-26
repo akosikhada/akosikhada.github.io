@@ -1,176 +1,167 @@
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { skills } from "../../data/constants";
+import BuildIcon from "@mui/icons-material/Build";
+import Tooltip from "@mui/material/Tooltip"; // Import Tooltip component
 
+// Modern, clean layout design
 const Container = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 1;
-  align-items: center;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 98%, 0 100%);
+  background-color: ${({ theme }) => theme.background_secondary};
+  padding: 60px 20px;
+  border-radius: 12px;
 `;
 
 const Wrapper = styled.div`
-  margin-top: 5%;
-  position: relative;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
   flex-direction: column;
   width: 100%;
-  max-width: 90rem;
-  padding: 5rem 1.25rem;
-  gap: 0.75rem;
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    padding: 4rem 1rem;
-    gap: 0.625rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    padding: 4rem 1.5rem;
-    gap: 0.75rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    padding: 4.5rem 2rem;
+  max-width: 1200px;
+  gap: 40px;
+  padding: 40px 20px;
+  background-color: ${({ theme }) => theme.background_primary};
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  @media (max-width: 960px) {
+    padding: 30px;
   }
 `;
 
 const Title = styled.div`
-  font-size: 3.5rem;
+  font-size: 56px;
   text-align: center;
-  font-weight: 900;
+  font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    font-size: 2rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    font-size: 2.5rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    font-size: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    font-size: 48px;
   }
 `;
 
 const Desc = styled.div`
-  font-size: 1rem;
+  font-size: 20px;
   text-align: center;
   font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    font-size: 0.875rem;
+  max-width: 800px;
+  margin: 0 auto;
+  @media (max-width: 768px) {
+    font-size: 18px;
   }
 `;
 
-const SkillsContainer = styled.div`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 0.5rem;
-  padding: 2rem;
-  background: rgba(17, 17, 40, 0.7);
-  border: 0.125rem solid ${({ theme }) => theme.primary};
-  box-shadow: rgba(23, 92, 230, 0.15) 0 0.25rem 1.5rem;
-  border-radius: 1rem;
-  margin-top: 1.5rem;
-
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    grid-template-columns: repeat(1, 1fr 1fr);
-    padding: 1rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    grid-template-columns: repeat(3, 1fr);
-    padding: 1.5rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    grid-template-columns: repeat(4, 1fr);
-  }
-`;
-
-const SkillItem = styled(motion.div)`
+const SkillSection = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  padding: 20px;
+  background: ${({ theme }) => theme.background_light};
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+`;
+
+const SkillTitle = styled.div`
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  text-align: center;
+  color: ${({ theme }) => theme.text_primary};
+`;
+
+const SkillGrid = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
-  background: ${({ theme }) => theme.card};
-  border: 0.0625rem solid ${({ theme }) => theme.primary};
-  box-shadow: rgba(23, 92, 230, 0.15) 0 0.25rem 1.5rem;
-  border-radius: 0.75rem;
-  padding: 0.9375rem;
-  transition: all 0.4s ease-in-out;
+  gap: 24px;
+  width: 100%;
+
+  @media (max-width: 768px) {
+    gap: 16px;
+  }
+`;
+
+const SkillItem = styled.div`
+  font-size: 18px;
+  font-weight: 600;
+  color: ${({ theme }) => theme.text_primary};
+  border: 2px solid ${({ theme }) => theme.border_primary};
+  border-radius: 12px;
+  padding: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 0.3s ease;
+  cursor: help;
 
   &:hover {
-    transform: translateY(-0.3125rem);
-    box-shadow: 0 0 1.5625rem rgba(23, 92, 230, 0.3);
+    transform: translateY(-8px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    background-color: ${({ theme }) => theme.background_hover};
   }
 
-  img {
-    width: 2.8125rem;
-    height: 2.8125rem;
-    margin-bottom: 0.5rem;
-    transition: all 0.4s ease-in-out;
-
-    /* ========== Mobile Devices (portrait and landscape) ========== */
-    @media only screen and (max-width: 767px) {
-      width: 2.1875rem;
-      height: 2.1875rem;
-    }
+  @media (max-width: 768px) {
+    font-size: 16px;
+    padding: 10px 14px;
   }
+`;
 
-  span {
-    font-size: 1rem;
-    font-weight: bold;
-    color: ${({ theme }) => theme.text_primary};
-    text-align: center;
+const SkillImage = styled.img`
+  width: 40px;
+  height: 40px;
+  transition: transform 0.2s ease;
 
-    /* ========== Mobile Devices (portrait and landscape) ========== */
-    @media only screen and (max-width: 767px) {
-      font-size: 0.875rem;
-    }
+  ${SkillItem}:hover & {
+    transform: scale(1.1);
+  }
+`;
+
+const StyledBuildIcon = styled(BuildIcon)`
+  font-size: 56px !important;
+  color: ${({ theme }) => theme.icon_color};
+  @media (max-width: 768px) {
+    font-size: 40px !important;
   }
 `;
 
 const Skills = () => {
-  const technologies = skills[0].skills;
-
   return (
     <Container id="Skills">
       <Wrapper>
-        <Title>Skills.</Title>
-        <Desc>TECHNOLOGIES</Desc>
-        <SkillsContainer>
-          {technologies.map((tech, index) => (
-            <SkillItem
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-            >
-              <img src={tech.image} alt={tech.name} />
-              <span>{tech.name}</span>
-            </SkillItem>
-          ))}
-        </SkillsContainer>
+        <Title>
+          <StyledBuildIcon />
+          Skills
+        </Title>
+        <Desc>Technologies and Tools I work with</Desc>
+
+        {skills.map((skill, index) => (
+          <SkillSection key={`skill-section-${index}`}>
+            <SkillTitle>{skill.title}</SkillTitle>
+            <SkillGrid>
+              {skill.skills.map((item, index_x) => (
+                <Tooltip key={`skill-x-${index_x}`} title={item.name} arrow>
+                  <SkillItem>
+                    <SkillImage src={item.image} alt={item.name} />
+                  </SkillItem>
+                </Tooltip>
+              ))}
+            </SkillGrid>
+          </SkillSection>
+        ))}
       </Wrapper>
     </Container>
   );
