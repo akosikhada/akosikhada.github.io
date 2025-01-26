@@ -536,7 +536,6 @@ const RotatingIconsBackground = styled.div`
     .join("")}
 `;
 
-
 const Hero = () => {
   const helloText = "Hello, I'm";
   const nameText = `${Bio.name}`;
