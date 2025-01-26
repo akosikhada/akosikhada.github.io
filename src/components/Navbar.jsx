@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link as LinkR } from "react-router-dom";
 import styled from "styled-components";
 import HomeIcon from "@mui/icons-material/Home";
-import InfoIcon from "@mui/icons-material/Info";
 import BuildIcon from "@mui/icons-material/Build";
 import WorkIcon from "@mui/icons-material/Work";
 import FolderIcon from "@mui/icons-material/Folder";
@@ -249,9 +248,6 @@ const Navbar = () => {
           <NavLink href="#Home">
             <HomeIcon /> Home
           </NavLink>
-          <NavLink href="#About">
-            <InfoIcon /> About
-          </NavLink>
           <NavLink href="#Skills">
             <BuildIcon /> Skills
           </NavLink>
@@ -266,9 +262,6 @@ const Navbar = () => {
         <MobileMenu className={isOpen ? "open" : ""}>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Home">
             <HomeIcon /> Home
-          </NavLink>
-          <NavLink onClick={() => setIsOpen(!isOpen)} href="#About">
-            <InfoIcon /> About
           </NavLink>
           <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
             <BuildIcon /> Skills
