@@ -26,8 +26,8 @@ const ColorText = styled.div`
 
 const NavbarContainer = styled.div`
   width: 100%;
-  max-width: 1440px;
-  padding: 0 24px;
+  max-width: 1100px;
+  padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -223,13 +223,13 @@ const MobileMenu = styled.ul`
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  return (  
+  return (
     <Nav>
       <NavbarContainer>
         <NavLogo>
           <ColorText>&lt;</ColorText>
-          <NameText>Miguel Enrique Dasalla</NameText>
-          <SlashText>/</SlashText>
+          <NameText>Miguel</NameText>
+          <SlashText>/</SlashText>Enrique
           <ColorText>&gt;</ColorText>
         </NavLogo>
 
