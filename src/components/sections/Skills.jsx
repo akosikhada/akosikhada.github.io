@@ -2,9 +2,37 @@ import React from "react";
 import styled from "styled-components";
 import { skills } from "../../data/constants";
 import BuildIcon from "@mui/icons-material/Build";
-import Tooltip from "@mui/material/Tooltip"; // Import Tooltip component
 
-// Modern, clean layout design
+const Skills = () => {
+  return (
+    <Container id="Skills">
+      <Wrapper>
+        <Title>
+          <StyledBuildIcon />
+          Skills
+        </Title>
+        <Desc>Technologies and Tools I work with</Desc>
+
+        {skills.map((skill, index) => (
+          <SkillSection key={`skill-section-${index}`}>
+            <SkillTitle>{skill.title}</SkillTitle>
+            <SkillGrid>
+              {skill.skills.map((item, index_x) => (
+                <SkillItem key={`skill-x-${index_x}`}>
+                  <SkillImage src={item.image} alt={item.name} />
+                  <CustomTooltip className="tooltip">{item.name}</CustomTooltip>
+                </SkillItem>
+              ))}
+            </SkillGrid>
+          </SkillSection>
+        ))}
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Skills;
+
 const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -93,6 +121,7 @@ const SkillGrid = styled.div`
 `;
 
 const SkillItem = styled.div`
+  position: relative;
   font-size: 18px;
   font-weight: 600;
   color: ${({ theme }) => theme.text_primary};
@@ -116,6 +145,11 @@ const SkillItem = styled.div`
     font-size: 16px;
     padding: 10px 14px;
   }
+
+  &:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+  }
 `;
 
 const SkillImage = styled.img`
@@ -133,6 +167,35 @@ const SkillImage = styled.img`
   }
 `;
 
+const CustomTooltip = styled.span`
+  position: absolute;
+  font-size: 0.75rem;
+  background-color: #111;
+  color: white;
+  padding: 0.25rem 0.5rem;
+  z-index: 50;
+  border-radius: 0.375rem;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  top: calc(100% + 20px);
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+  border: 1px solid #333;
+  white-space: nowrap;
+
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
+  }
+`;
+
 const StyledBuildIcon = styled(BuildIcon)`
   font-size: 56px !important;
   color: ${({ theme }) => theme.icon_color};
@@ -140,34 +203,3 @@ const StyledBuildIcon = styled(BuildIcon)`
     font-size: 40px !important;
   }
 `;
-
-const Skills = () => {
-  return (
-    <Container id="Skills">
-      <Wrapper>
-        <Title>
-          <StyledBuildIcon />
-          Skills
-        </Title>
-        <Desc>Technologies and Tools I work with</Desc>
-
-        {skills.map((skill, index) => (
-          <SkillSection key={`skill-section-${index}`}>
-            <SkillTitle>{skill.title}</SkillTitle>
-            <SkillGrid>
-              {skill.skills.map((item, index_x) => (
-                <Tooltip key={`skill-x-${index_x}`} title={item.name} arrow>
-                  <SkillItem>
-                    <SkillImage src={item.image} alt={item.name} />
-                  </SkillItem>
-                </Tooltip>
-              ))}
-            </SkillGrid>
-          </SkillSection>
-        ))}
-      </Wrapper>
-    </Container>
-  );
-};
-
-export default Skills;
