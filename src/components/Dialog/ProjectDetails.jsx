@@ -3,6 +3,68 @@ import { Modal } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
 
+const ProjectDetail = ({ openModal, setOpenModal }) => {
+  const project = openModal?.project;
+
+  return (
+    <Modal
+      open={true}
+      onClose={() => setOpenModal({ state: false, project: null })}
+    >
+      <Container>
+        <Wrapper>
+          <CloseRounded
+            style={{
+              position: "absolute",
+              top: "10px",
+              right: "20px",
+              cursor: "pointer",
+            }}
+            onClick={() => setOpenModal({ state: false, project: null })}
+          />
+          <Image src={project?.image} />
+          <Title>{project?.title}</Title>
+          <Date>{project.date}</Date>
+          <Tags>
+            {project?.tags.map((tag, index) => (
+              <Tag key={index}>
+                <TagImage src={tag.icon} alt={tag.name} />
+                <Tooltip className="tooltip">{tag.name}</Tooltip>
+              </Tag>
+            ))}
+          </Tags>
+          <Desc>
+            {project?.description.map((desc, index) => (
+              <DescItem key={index}>{desc}</DescItem>
+            ))}
+          </Desc>
+          <ButtonGroup>
+            <Button
+              $dull={!project?.source}
+              href={project?.source || "#"}
+              target="new"
+              disabled={!project?.source}
+              onClick={(e) => !project?.source && e.preventDefault()}
+            >
+              <GitHub />
+              {project?.source ? "Source Code" : "Private"}
+            </Button>
+
+            {project?.demo && (
+              <Button href={project.demo} target="new">
+                <Launch />
+                Live Demo
+              </Button>
+            )}
+          </ButtonGroup>
+        </Wrapper>
+      </Container>
+    </Modal>
+  );
+};
+
+export default ProjectDetail;
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -45,11 +107,16 @@ const Date = styled.div`
   color: ${({ theme }) => theme.text_secondary};
 `;
 
-const Desc = styled.div`
+const Desc = styled.ul`
   font-size: 1rem;
-  font-weight: bol;
+  font-weight: bold;
   color: ${({ theme }) => theme.text_primary};
   margin: 8px 6px;
+  padding-left: 20px;
+`;
+
+const DescItem = styled.li`
+  margin-bottom: 8px;
 `;
 
 const Image = styled.img`
@@ -82,8 +149,8 @@ const Tag = styled.div`
 `;
 
 const TagImage = styled.img`
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   cursor: help;
 `;
 
@@ -93,20 +160,26 @@ const Tooltip = styled.span`
   background-color: #111;
   color: white;
   padding: 0.25rem 0.5rem;
-  padding: 0.25rem 0.5rem;
   z-index: 50;
   border-radius: 0.375rem;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
-  top: 100%;
+  top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%);
   pointer-events: none;
   border: 1px solid #333;
   white-space: nowrap;
 
-  &:hover {
-    opacity: 1;
+  &:before {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: transparent transparent #ffffff transparent;
   }
 `;
 
@@ -156,60 +229,3 @@ const Button = styled.a`
     background-color: ${({ theme }) => theme.primary + 99};
   }
 `;
-
-const ProjectDetail = ({ openModal, setOpenModal }) => {
-  const project = openModal?.project;
-  return (
-    <Modal
-      open={true}
-      onClose={() => setOpenModal({ state: false, project: null })}
-    >
-      <Container>
-        <Wrapper>
-          <CloseRounded
-            style={{
-              position: "absolute",
-              top: "10px",
-              right: "20px",
-              cursor: "pointer",
-            }}
-            onClick={() => setOpenModal({ state: false, project: null })}
-          />
-          <Image src={project?.image} />
-          <Title>{project?.title}</Title>
-          <Date>{project.date}</Date>
-          <Tags>
-            {project?.tags.map((tag, index) => (
-              <Tag key={index}>
-                <TagImage src={tag.icon} alt={tag.name} />
-                <Tooltip className="tooltip">{tag.name}</Tooltip>
-              </Tag>
-            ))}
-          </Tags>
-          <Desc>{project?.description}</Desc>
-          <ButtonGroup>
-            <Button
-              $dull={!project?.source}
-              href={project?.source || "#"}
-              target="new"
-              disabled={!project?.source}
-              onClick={(e) => !project?.source && e.preventDefault()}
-            >
-              <GitHub />
-              {project?.source ? "Source Code" : "Private"}
-            </Button>
-
-            {project?.demo && (
-              <Button href={project.demo} target="new">
-                <Launch />
-                Live Demo
-              </Button>
-            )}
-          </ButtonGroup>
-        </Wrapper>
-      </Container>
-    </Modal>
-  );
-};
-
-export default ProjectDetail;
