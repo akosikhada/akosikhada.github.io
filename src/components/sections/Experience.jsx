@@ -7,6 +7,33 @@ import ExperienceCard from "../cards/ExperienceCard";
 import EarthCanvas from "../canvas/Earth";
 import WorkIcon from "@mui/icons-material/Work";
 
+const Experience = () => {
+  return (
+    <Container id="Experience">
+      <Wrapper>
+        <Title>
+          <StyledWorkIcon />
+          Experience
+        </Title>
+        <Desc>WHAT I HAVE DONE SO FAR</Desc>
+        <VerticalTimeline>
+          {experiences.map((experience, index) => (
+            <ExperienceCard
+              key={`experience-${index}`}
+              experience={experience}
+            />
+          ))}
+        </VerticalTimeline>
+        <EarthCanvasContainer>
+          <EarthCanvas />
+        </EarthCanvasContainer>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Experience;
+
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -95,30 +122,3 @@ const StyledWorkIcon = styled(WorkIcon)`
     font-size: 40px !important;
   }
 `;
-
-const Experience = () => {
-  return (
-    <Container id="Experience">
-      <Wrapper>
-        <Title>
-          <StyledWorkIcon />
-          Experience
-        </Title>
-        <Desc>WHAT I HAVE DONE SO FAR</Desc>
-        <VerticalTimeline>
-          {experiences.map((experience, index) => (
-            <ExperienceCard
-              key={`experience-${index}`}
-              experience={experience}
-            />
-          ))}
-        </VerticalTimeline>
-        <EarthCanvasContainer>
-          <EarthCanvas />
-        </EarthCanvasContainer>
-      </Wrapper>
-    </Container>
-  );
-};
-
-export default Experience;
