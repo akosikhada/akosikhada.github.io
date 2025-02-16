@@ -1,6 +1,32 @@
 import React from "react";
 import styled from "styled-components";
 
+const ProjectCards = ({ project, setOpenModal }) => {
+  return (
+    <Card
+      status={project.status}
+      onClick={() => setOpenModal({ state: true, project: project })}
+    >
+      <Image src={project.image} />
+      <Tags>
+        {project.tags?.map((tag, index) => (
+          <Tag key={index}>
+            <TagImage src={tag.icon} alt={tag.name} />
+          </Tag>
+        ))}
+      </Tags>
+      <Details>
+        <Title>{project.title}</Title>
+        <Date>{project.date}</Date>
+        <Description>{project.description}</Description>
+      </Details>
+    </Card>
+  );
+};
+
+export default ProjectCards;
+
+
 const Button = styled.button`
   display: none;
   width: 100%;
@@ -121,28 +147,3 @@ const Description = styled.div`
   -webkit-box-orient: vertical;
   text-overflow: ellipsis;
 `;
-
-const ProjectCards = ({ project, setOpenModal }) => {
-  return (
-    <Card
-      status={project.status}
-      onClick={() => setOpenModal({ state: true, project: project })}
-    >
-      <Image src={project.image} />
-      <Tags>
-        {project.tags?.map((tag, index) => (
-          <Tag key={index}>
-            <TagImage src={tag.icon} alt={tag.name} />
-          </Tag>
-        ))}
-      </Tags>
-      <Details>
-        <Title>{project.title}</Title>
-        <Date>{project.date}</Date>
-        <Description>{project.description}</Description>
-      </Details>
-    </Card>
-  );
-};
-
-export default ProjectCards;
