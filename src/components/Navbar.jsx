@@ -6,6 +6,65 @@ import BuildIcon from "@mui/icons-material/Build";
 import WorkIcon from "@mui/icons-material/Work";
 import FolderIcon from "@mui/icons-material/Folder";
 
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <Nav>
+      <NavbarContainer>
+        <NavLogo>
+          <ColorText>&lt;</ColorText>
+          <NameText>Miguel</NameText>
+          <SlashText>/</SlashText>Enrique
+          <ColorText>&gt;</ColorText>
+        </NavLogo>
+
+        <MobileIcon
+          className={isOpen ? "open" : ""}
+          onClick={() => setIsOpen(!isOpen)}
+        >
+          <div className="menu-icon">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </MobileIcon>
+
+        <NavItems>
+          <NavLink href="#Home">
+            <HomeIcon /> Home
+          </NavLink>
+          <NavLink href="#Skills">
+            <BuildIcon /> Skills
+          </NavLink>
+          <NavLink href="#Experience">
+            <WorkIcon /> Experience
+          </NavLink>
+          <NavLink href="#Projects">
+            <FolderIcon /> Projects
+          </NavLink>
+        </NavItems>
+
+        <MobileMenu className={isOpen ? "open" : ""}>
+          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Home">
+            <HomeIcon /> Home
+          </NavLink>
+          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
+            <BuildIcon /> Skills
+          </NavLink>
+          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
+            <WorkIcon /> Experience
+          </NavLink>
+          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
+            <FolderIcon /> Projects
+          </NavLink>
+        </MobileMenu>
+      </NavbarContainer>
+    </Nav>
+  );
+};
+
+export default Navbar;
+
 const Nav = styled.div`
   background-color: ${({ theme }) => theme.bg};
   height: 80px;
@@ -220,62 +279,3 @@ const MobileMenu = styled.ul`
     visibility: visible;
   }
 `;
-
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  return (
-    <Nav>
-      <NavbarContainer>
-        <NavLogo>
-          <ColorText>&lt;</ColorText>
-          <NameText>Miguel</NameText>
-          <SlashText>/</SlashText>Enrique
-          <ColorText>&gt;</ColorText>
-        </NavLogo>
-
-        <MobileIcon
-          className={isOpen ? "open" : ""}
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          <div className="menu-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </MobileIcon>
-
-        <NavItems>
-          <NavLink href="#Home">
-            <HomeIcon /> Home
-          </NavLink>
-          <NavLink href="#Skills">
-            <BuildIcon /> Skills
-          </NavLink>
-          <NavLink href="#Experience">
-            <WorkIcon /> Experience
-          </NavLink>
-          <NavLink href="#Projects">
-            <FolderIcon /> Projects
-          </NavLink>
-        </NavItems>
-
-        <MobileMenu className={isOpen ? "open" : ""}>
-          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Home">
-            <HomeIcon /> Home
-          </NavLink>
-          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Skills">
-            <BuildIcon /> Skills
-          </NavLink>
-          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Experience">
-            <WorkIcon /> Experience
-          </NavLink>
-          <NavLink onClick={() => setIsOpen(!isOpen)} href="#Projects">
-            <FolderIcon /> Projects
-          </NavLink>
-        </MobileMenu>
-      </NavbarContainer>
-    </Nav>
-  );
-};
-
-export default Navbar;
