@@ -14,6 +14,95 @@ import GithubIcon from "@mui/icons-material/GitHub";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
+const Hero = () => {
+  const helloText = "Hello, I'm";
+  const nameText = `${Bio.name}`;
+
+  const splitText = (text) => {
+    return text
+      .split("")
+      .map((char, index) => (
+        <span key={index}>{char === " " ? "\u00A0" : char}</span>
+      ));
+  };
+
+  return (
+    <div id="Home">
+      <HeroContainer>
+        <HeroBg>
+          <StarCanvas />
+          <HeroBgAnimation />
+        </HeroBg>
+        <motion.div {...headContainerAnimation}>
+          <HeroInnerContainer>
+            <HeroLeftContainer>
+              <motion.div {...headTextAnimation}>
+                <Title>
+                  <div>{splitText(helloText)}</div>
+                  <div>{splitText(nameText)}</div>
+                </Title>
+                <TextLoop>
+                  I'm a
+                  <Span>
+                    <Typewriter
+                      options={{
+                        strings: Bio.roles,
+                        autoStart: true,
+                        loop: true,
+                      }}
+                    />
+                  </Span>
+                </TextLoop>
+              </motion.div>
+
+              <motion.div {...headContentAnimation}>
+                <SubTitle>{Bio.description}</SubTitle>
+              </motion.div>
+
+              <SocialMediaIcons>
+                <SocialMediaIcon href={Bio.github} target="display">
+                  <GithubIcon style={{ fontSize: 36 }} />
+                </SocialMediaIcon>
+                <SocialMediaIcon href={Bio.instagram} target="display">
+                  <InstagramIcon style={{ fontSize: 36 }} />
+                </SocialMediaIcon>
+                <SocialMediaIcon href={Bio.linkedin} target="display">
+                  <LinkedInIcon style={{ fontSize: 36 }} />
+                </SocialMediaIcon>
+              </SocialMediaIcons>
+              <ResumeButton href={Bio.resume} target="_blank">
+                Résumé
+              </ResumeButton>
+            </HeroLeftContainer>
+            <HeroRightContainer>
+              <motion.div {...headContentAnimation}>
+                <ImageWrapper>
+                  <RotatingIconsBackground>
+                    <img src="/assets/icons/html.png" alt="HTML" />
+                    <img src="/assets/icons/css.png" alt="CSS" />
+                    <img src="/assets/icons/js.png" alt="JavaScript" />
+                    <img src="/assets/icons/bootstrap.png" alt="Bootstrap" />
+                    <img src="/assets/icons/tailwind.png" alt="Tailwind CSS" />
+                    <img src="/assets/icons/react.png" alt="React JS" />
+                    <img src="/assets/icons/ts.png" alt="TypeScript" />
+                    <img src="/assets/icons/next.png" alt="Next JS" />
+                  </RotatingIconsBackground>
+                  <Img
+                    src="/miguel_enrique_dasalla.jpg"
+                    alt="Miguel Enrique Dasalla"
+                  />
+                </ImageWrapper>
+              </motion.div>
+            </HeroRightContainer>
+          </HeroInnerContainer>
+        </motion.div>
+      </HeroContainer>
+    </div>
+  );
+};
+
+export default Hero;
+
 const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
@@ -525,92 +614,3 @@ const RotatingIconsBackground = styled.div`
     })
     .join("")}
 `;
-
-const Hero = () => {
-  const helloText = "Hello, I'm";
-  const nameText = `${Bio.name}`;
-
-  const splitText = (text) => {
-    return text
-      .split("")
-      .map((char, index) => (
-        <span key={index}>{char === " " ? "\u00A0" : char}</span>
-      ));
-  };
-
-  return (
-    <div id="Home">
-      <HeroContainer>
-        <HeroBg>
-          <StarCanvas />
-          <HeroBgAnimation />
-        </HeroBg>
-        <motion.div {...headContainerAnimation}>
-          <HeroInnerContainer>
-            <HeroLeftContainer>
-              <motion.div {...headTextAnimation}>
-                <Title>
-                  <div>{splitText(helloText)}</div>
-                  <div>{splitText(nameText)}</div>
-                </Title>
-                <TextLoop>
-                  I'm a
-                  <Span>
-                    <Typewriter
-                      options={{
-                        strings: Bio.roles,
-                        autoStart: true,
-                        loop: true,
-                      }}
-                    />
-                  </Span>
-                </TextLoop>
-              </motion.div>
-
-              <motion.div {...headContentAnimation}>
-                <SubTitle>{Bio.description}</SubTitle>
-              </motion.div>
-
-              <SocialMediaIcons>
-                <SocialMediaIcon href={Bio.github} target="display">
-                  <GithubIcon style={{ fontSize: 36 }} />
-                </SocialMediaIcon>
-                <SocialMediaIcon href={Bio.instagram} target="display">
-                  <InstagramIcon style={{ fontSize: 36 }} />
-                </SocialMediaIcon>
-                <SocialMediaIcon href={Bio.linkedin} target="display">
-                  <LinkedInIcon style={{ fontSize: 36 }} />
-                </SocialMediaIcon>
-              </SocialMediaIcons>
-              <ResumeButton href={Bio.resume} target="_blank">
-                Résumé
-              </ResumeButton>
-            </HeroLeftContainer>
-            <HeroRightContainer>
-              <motion.div {...headContentAnimation}>
-                <ImageWrapper>
-                  <RotatingIconsBackground>
-                    <img src="/assets/icons/html.png" alt="HTML" />
-                    <img src="/assets/icons/css.png" alt="CSS" />
-                    <img src="/assets/icons/js.png" alt="JavaScript" />
-                    <img src="/assets/icons/bootstrap.png" alt="Bootstrap" />
-                    <img src="/assets/icons/tailwind.png" alt="Tailwind CSS" />
-                    <img src="/assets/icons/react.png" alt="React JS" />
-                    <img src="/assets/icons/ts.png" alt="TypeScript" />
-                    <img src="/assets/icons/next.png" alt="Next JS" />
-                  </RotatingIconsBackground>
-                  <Img
-                    src="/miguel_enrique_dasalla.jpg"
-                    alt="Miguel Enrique Dasalla"
-                  />
-                </ImageWrapper>
-              </motion.div>
-            </HeroRightContainer>
-          </HeroInnerContainer>
-        </motion.div>
-      </HeroContainer>
-    </div>
-  );
-};
-
-export default Hero;
