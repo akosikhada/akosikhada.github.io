@@ -2,6 +2,85 @@ import React from "react";
 import styled from "styled-components";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 
+const ExperienceCard = ({ experience }) => {
+  const isEmpty =
+    !experience.role &&
+    !experience.company &&
+    !experience.desc.length &&
+    !experience.skills.length;
+
+  return (
+    <VerticalTimelineElement
+      icon={
+        <img
+          width="100%"
+          height="100%"
+          alt={experience.company}
+          style={{ borderRadius: "50%", objectFit: "cover" }}
+          src={experience.img}
+        />
+      }
+      contentStyle={{
+        display: "flex",
+        flexDirection: "column",
+        gap: "0.75rem",
+        background: "#1d1836",
+        color: "#fff",
+        boxShadow: "rgba(23, 92, 230, 0.15) 0 0.25rem 1.5rem",
+        backgroundColor: "rgba(17, 25, 40, 0.83)",
+        border: "0.0625rem solid rgba(255, 255, 255, 0.125)",
+        borderRadius: "0.375rem",
+        padding: "1.5rem",
+      }}
+      contentArrowStyle={{
+        borderRight: "0.4375rem solid rgba(255, 255, 255, 0.3)",
+      }}
+      date={experience.date}
+    >
+      {isEmpty ? (
+        <NoExperience>No experience to show yet.</NoExperience>
+      ) : (
+        <>
+          <Top>
+            <Body>
+              <Role>{experience.role}</Role>
+              <Company>{experience.company}</Company>
+            </Body>
+          </Top>
+          <Description>
+            {experience?.desc && (
+              <ul>
+                {Array.isArray(experience.desc) ? (
+                  experience.desc.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))
+                ) : (
+                  <li>{experience.desc}</li>
+                )}
+              </ul>
+            )}
+            {experience?.skills && (
+              <>
+                <Skills>
+                  <b>Skills/Technologies Used:</b>
+                  <ItemWrapper>
+                    {experience?.skills?.map((skill, index) => (
+                      <Skill key={index}>• {skill}</Skill>
+                    ))}
+                  </ItemWrapper>
+                </Skills>
+              </>
+            )}
+          </Description>
+        </>
+      )}
+    </VerticalTimelineElement>
+  );
+};
+
+export default ExperienceCard;
+
+
 const Top = styled.div`
   display: flex;
   max-width: 100%;
@@ -93,81 +172,3 @@ const NoExperience = styled.div`
   font-size: 2rem;
   color: ${({ theme }) => theme.text_primary + 99};
 `;
-
-const ExperienceCard = ({ experience }) => {
-  const isEmpty =
-    !experience.role &&
-    !experience.company &&
-    !experience.desc.length &&
-    !experience.skills.length;
-
-  return (
-    <VerticalTimelineElement
-      icon={
-        <img
-          width="100%"
-          height="100%"
-          alt={experience.company}
-          style={{ borderRadius: "50%", objectFit: "cover" }}
-          src={experience.img}
-        />
-      }
-      contentStyle={{
-        display: "flex",
-        flexDirection: "column",
-        gap: "0.75rem",
-        background: "#1d1836",
-        color: "#fff",
-        boxShadow: "rgba(23, 92, 230, 0.15) 0 0.25rem 1.5rem",
-        backgroundColor: "rgba(17, 25, 40, 0.83)",
-        border: "0.0625rem solid rgba(255, 255, 255, 0.125)",
-        borderRadius: "0.375rem",
-        padding: "1.5rem",
-      }}
-      contentArrowStyle={{
-        borderRight: "0.4375rem solid rgba(255, 255, 255, 0.3)",
-      }}
-      date={experience.date}
-    >
-      {isEmpty ? (
-        <NoExperience>No experience to show yet.</NoExperience>
-      ) : (
-        <>
-          <Top>
-            <Body>
-              <Role>{experience.role}</Role>
-              <Company>{experience.company}</Company>
-            </Body>
-          </Top>
-          <Description>
-            {experience?.desc && (
-              <ul>
-                {Array.isArray(experience.desc) ? (
-                  experience.desc.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))
-                ) : (
-                  <li>{experience.desc}</li>
-                )}
-              </ul>
-            )}
-            {experience?.skills && (
-              <>
-                <Skills>
-                  <b>Skills/Technologies Used:</b>
-                  <ItemWrapper>
-                    {experience?.skills?.map((skill, index) => (
-                      <Skill key={index}>• {skill}</Skill>
-                    ))}
-                  </ItemWrapper>
-                </Skills>
-              </>
-            )}
-          </Description>
-        </>
-      )}
-    </VerticalTimelineElement>
-  );
-};
-
-export default ExperienceCard;
