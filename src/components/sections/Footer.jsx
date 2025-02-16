@@ -1,6 +1,21 @@
 import React from "react";
 import styled from "styled-components";
 
+const Footer = () => {
+  return (
+    <FooterContainer>
+      <FooterWrapper>
+        <Copyright>
+          &copy; {new Date().getFullYear()} Miguel Enrique Dasalla. All Rights
+          Reserved.
+        </Copyright>
+      </FooterWrapper>
+    </FooterContainer>
+  );
+};
+
+export default Footer;
+
 const FooterContainer = styled.div`
   width: 100%;
   padding: 2rem 0;
@@ -27,18 +42,3 @@ const Copyright = styled.p`
   color: ${({ theme }) => theme.soft2};
   text-align: center;
 `;
-
-const Footer = () => {
-  return (
-    <FooterContainer>
-      <FooterWrapper>
-        <Copyright>
-          &copy; {new Date().getFullYear()} Miguel Enrique Dasalla. All Rights
-          Reserved.
-        </Copyright>
-      </FooterWrapper>
-    </FooterContainer>
-  );
-};
-
-export default Footer;
