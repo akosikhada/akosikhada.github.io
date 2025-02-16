@@ -8,6 +8,108 @@ import "slick-carousel/slick/slick-theme.css";
 import { ChevronLeft, ChevronRight } from "@mui/icons-material";
 import FolderIcon from "@mui/icons-material/Folder";
 
+const Projects = ({ openModal, setOpenModal }) => {
+  const [sliderRef, setSliderRef] = useState(null);
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 200,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    centerMode: true,
+    centerPadding: "60px",
+    arrows: false,
+    cssEase: "linear",
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "0",
+          speed: 200,
+          cssEase: "linear",
+          infinite: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          centerMode: true,
+          centerPadding: "20px",
+          speed: 200,
+          cssEase: "linear",
+          infinite: true,
+        },
+      },
+    ],
+  };
+
+  const handleProjectClick = (url) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }
+  };
+
+  return (
+    <Container id="Projects">
+      <Wrapper>
+        <Title>
+          <StyledFolderIcon />
+          Projects
+        </Title>
+        <Desc>
+          My portfolio highlights my skills and experience through concrete
+          examples of my Folder. Each project, linked to its code repository and
+          live demo, showcases my ability to tackle complex challenges, leverage
+          diverse technologies, and manage projects efficiently.
+        </Desc>
+        <StatusLegend>
+          <StatusItem>
+            <StatusDot color="#854CE6" />
+            <span>Completed</span>
+          </StatusItem>
+          <StatusItem>
+            <StatusDot color="#45c512" />
+            <span>In Progress</span>
+          </StatusItem>
+          <StatusItem>
+            <StatusDot color="#fc4444" />
+            <span>Discontinued / On-Hold</span>
+          </StatusItem>
+        </StatusLegend>
+        <CarouselContainer>
+          <Slider ref={setSliderRef} {...settings}>
+            {projects.map((project) => (
+              <ProjectCard
+                key={project.id}
+                project={project}
+                openModal={openModal}
+                setOpenModal={setOpenModal}
+                onClick={() => handleProjectClick(project.demo)}
+              />
+            ))}
+          </Slider>
+          <ArrowContainer>
+            <Arrow onClick={() => sliderRef?.slickPrev()}>
+              <ChevronLeft />
+            </Arrow>
+            <Arrow onClick={() => sliderRef?.slickNext()}>
+              <ChevronRight />
+            </Arrow>
+          </ArrowContainer>
+        </CarouselContainer>
+      </Wrapper>
+    </Container>
+  );
+};
+
+export default Projects;
+
 const Container = styled.div`
   width: 100%;
   display: flex;
@@ -210,105 +312,3 @@ const StyledFolderIcon = styled(FolderIcon)`
     font-size: 40px !important;
   }
 `;
-
-const Projects = ({ openModal, setOpenModal }) => {
-  const [sliderRef, setSliderRef] = useState(null);
-
-  const settings = {
-    dots: false,
-    infinite: true,
-    speed: 200,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-    centerMode: true,
-    centerPadding: "60px",
-    arrows: false,
-    cssEase: "linear",
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "0",
-          speed: 200,
-          cssEase: "linear",
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          centerMode: true,
-          centerPadding: "20px",
-          speed: 200,
-          cssEase: "linear",
-          infinite: true,
-        },
-      },
-    ],
-  };
-
-  const handleProjectClick = (url) => {
-    if (url) {
-      window.open(url, "_blank", "noopener,noreferrer");
-    }
-  };
-
-  return (
-    <Container id="Projects">
-      <Wrapper>
-        <Title>
-          <StyledFolderIcon />
-          Projects
-        </Title>
-        <Desc>
-          My portfolio highlights my skills and experience through concrete
-          examples of my Folder. Each project, linked to its code repository and
-          live demo, showcases my ability to tackle complex challenges, leverage
-          diverse technologies, and manage projects efficiently.
-        </Desc>
-        <StatusLegend>
-          <StatusItem>
-            <StatusDot color="#854CE6" />
-            <span>Completed</span>
-          </StatusItem>
-          <StatusItem>
-            <StatusDot color="#45c512" />
-            <span>In Progress</span>
-          </StatusItem>
-          <StatusItem>
-            <StatusDot color="#fc4444" />
-            <span>Discontinued / On-Hold</span>
-          </StatusItem>
-        </StatusLegend>
-        <CarouselContainer>
-          <Slider ref={setSliderRef} {...settings}>
-            {projects.map((project) => (
-              <ProjectCard
-                key={project.id}
-                project={project}
-                openModal={openModal}
-                setOpenModal={setOpenModal}
-                onClick={() => handleProjectClick(project.demo)}
-              />
-            ))}
-          </Slider>
-          <ArrowContainer>
-            <Arrow onClick={() => sliderRef?.slickPrev()}>
-              <ChevronLeft />
-            </Arrow>
-            <Arrow onClick={() => sliderRef?.slickNext()}>
-              <ChevronRight />
-            </Arrow>
-          </ArrowContainer>
-        </CarouselContainer>
-      </Wrapper>
-    </Container>
-  );
-};
-
-export default Projects;
