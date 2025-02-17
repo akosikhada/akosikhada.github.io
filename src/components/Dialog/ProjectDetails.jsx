@@ -17,7 +17,7 @@ const ProjectDetail = ({ openModal, setOpenModal }) => {
             style={{
               position: "absolute",
               top: "10px",
-              right: "20px",
+              right: "10px",
               cursor: "pointer",
             }}
             onClick={() => setOpenModal({ state: false, project: null })}
@@ -82,37 +82,51 @@ const Container = styled.div`
 const Wrapper = styled.div`
   max-width: 800px;
   width: 100%;
+  height: max-content;
   border-radius: 1rem;
-  margin: 50px 12px;
-  height: min-content;
+  margin: 10px 10px;
   background-color: ${({ theme }) => theme.card};
   color: ${({ theme }) => theme.text_primary};
-  padding: 1.25rem;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   position: relative;
+
+  @media (max-width: 768px) {
+    padding: 10px 10px;
+    max-width: 500px;
+  }
 `;
 
 const Title = styled.div`
   font-size: 1.5rem;
-  font-weight: bold;
+  font-weight: 900;
   color: ${({ theme }) => theme.text_primary};
-  margin: 8px 6px 0px 6px;
+
+  @media (max-width: 768px) {
+    font-size: 1.25rem;
+  }
 `;
 
 const Date = styled.div`
   font-size: 1rem;
-  margin: 2px 6px;
   font-weight: bold;
   color: ${({ theme }) => theme.text_secondary};
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
 
 const Desc = styled.ul`
   font-size: 1rem;
   font-weight: bold;
   color: ${({ theme }) => theme.text_primary};
-  margin: 8px 6px;
   padding-left: 20px;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
 
 const DescItem = styled.li`
@@ -133,7 +147,7 @@ const Image = styled.img`
 const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
-  margin: 8px 0px;
+  margin: 10px 0px;
 `;
 
 const Tag = styled.div`
@@ -152,6 +166,11 @@ const TagImage = styled.img`
   width: 50px;
   height: 50px;
   cursor: help;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const Tooltip = styled.span`
