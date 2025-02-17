@@ -80,7 +80,6 @@ const ExperienceCard = ({ experience }) => {
 
 export default ExperienceCard;
 
-
 const Top = styled.div`
   display: flex;
   max-width: 100%;
