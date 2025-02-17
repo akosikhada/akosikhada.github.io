@@ -44,6 +44,10 @@ const Container = styled.div`
   align-items: center;
   padding: 60px 20px;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 98%, 0 100%);
+
+  @media screen and (max-width: 768px) {
+    padding: 40px 5px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -53,30 +57,17 @@ const Wrapper = styled.div`
   align-items: center;
   flex-direction: column;
   width: 100%;
-  max-width: 1440px;
-  padding: 40px 20px;
-  gap: 0.75rem;
+  max-width: 1200px;
+  padding: 60px 10px;
+  gap: 15px;
 
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    padding: 3rem 1rem;
-    gap: 0.625rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    padding: 4rem 1.5rem;
-    gap: 0.75rem;
-  }
-
-  /* ========== Laptop Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 1024px) and (max-width: 1439px) {
-    padding: 4.5rem 2rem;
+  @media (max-width: 768px) {
+    padding: 40px 5px;
   }
 `;
 
 const Title = styled.div`
-  font-size: 56px;
+  font-size: 3.5rem;
   text-align: center;
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
@@ -86,27 +77,21 @@ const Title = styled.div`
   gap: 12px;
   width: 100%;
   margin: 0 auto;
+
   @media (max-width: 768px) {
-    font-size: 48px;
+    font-size: 3rem;
   }
 `;
 
 const Desc = styled.div`
   font-size: 1rem;
   text-align: center;
-  font-weight: 500;
+  font-weight: 600;
   color: ${({ theme }) => theme.text_secondary};
   margin-bottom: 2.5rem;
 
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
+  @media (max-width: 768px) {
     font-size: 0.875rem;
-    margin-bottom: 1.875rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    margin-bottom: 2rem;
   }
 `;
 
