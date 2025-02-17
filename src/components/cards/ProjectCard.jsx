@@ -18,14 +18,12 @@ const ProjectCards = ({ project, setOpenModal }) => {
       <Details>
         <Title>{project.title}</Title>
         <Date>{project.date}</Date>
-        <Description>{project.description}</Description>
       </Details>
     </Card>
   );
 };
 
 export default ProjectCards;
-
 
 const Button = styled.button`
   display: none;
@@ -42,11 +40,11 @@ const Button = styled.button`
 `;
 
 const Card = styled.div`
-  width: 330px;
-  height: 490px;
+  width: 350px;
+  height: 500px;
   background-color: ${({ theme }) => theme.card};
   cursor: pointer;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   box-shadow: 0 0 12px 4px rgba(0, 0, 0, 0.4);
   border: 2px solid
     ${({ theme, status }) => {
@@ -62,15 +60,20 @@ const Card = styled.div`
       }
     }};
   overflow: hidden;
-  padding: 26px 20px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 15px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   z-index: 1;
   &:hover ${Button} {
     display: block;
+  }
+
+  @media (max-width: 768px) {
+    width: 100%;
+    height: auto;
   }
 `;
 
@@ -79,7 +82,7 @@ const Image = styled.img`
   max-height: max-content;
   height: auto;
   background-color: ${({ theme }) => theme.white};
-  border-radius: 0.875rem;
+  border-radius: 1rem;
   box-shadow: 0 0 16px 2px rgba(0, 0, 0, 0.3);
 `;
 
@@ -87,9 +90,10 @@ const Tags = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 4px;
+  gap: 10px;
+  margin-top: 5px;
 `;
 
 const Tag = styled.div`
@@ -106,19 +110,22 @@ const Tag = styled.div`
 const TagImage = styled.img`
   width: 20px;
   height: 20px;
+
+  @media (max-width: 768px) {
+    width: 15px;
+    height: 15px;
+  }
 `;
 
 const Details = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  padding: 0px 2px;
 `;
 
 const Title = styled.div`
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 1.75rem;
+  font-weight: 900;
   color: ${({ theme }) => theme.text_secondary};
   overflow: hidden;
   display: -webkit-box;
@@ -127,23 +134,19 @@ const Title = styled.div`
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
 `;
 
 const Date = styled.div`
-  font-size: 0.875rem;
+  font-size: 1rem;
   margin-left: 2px;
   font-weight: normal;
-  color: ${({ theme }) => theme.text_secondary + 80};
-`;
-
-const Description = styled.div`
-  font-weight: normal;
   color: ${({ theme }) => theme.text_secondary + 99};
-  overflow: hidden;
-  margin-top: 8px;
-  display: -webkit-box;
-  width: 100%;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  text-overflow: ellipsis;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+  }
 `;
