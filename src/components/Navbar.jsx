@@ -13,8 +13,8 @@ const Navbar = () => {
       <NavbarContainer>
         <NavLogo>
           <ColorText>&lt;</ColorText>
-          <NameText>Miguel</NameText>
-          <SlashText>/</SlashText>Enrique
+          <NameText>Miguel Enrique</NameText>
+          <SlashText>/</SlashText>
           <ColorText>&gt;</ColorText>
         </NavLogo>
 
