@@ -93,8 +93,9 @@ const Wrapper = styled.div`
   position: relative;
 
   @media (max-width: 768px) {
-    padding: 10px 10px;
+    padding: 15px 15px;
     max-width: 500px;
+    margin: 5px 5px;
   }
 `;
 
@@ -126,6 +127,9 @@ const Desc = styled.ul`
 
   @media (max-width: 768px) {
     font-size: 0.875rem;
+    text-align: justify;
+    line-height: 1.5rem;
+    letter-spacing: 0.2pt;
   }
 `;
 
@@ -136,12 +140,17 @@ const DescItem = styled.li`
 const Image = styled.img`
   width: 100%;
   max-height: max-content;
-  height: auto;
-  object-fit: cover;
+  max-width: max-content;
+  height: 40vh;
+  object-fit: contain;
   border-radius: 0.875rem;
   margin: 30px auto;
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   display: block;
+
+  @media (max-width: 768px) {
+    height: 30vh;
+  }
 `;
 
 const Tags = styled.div`
