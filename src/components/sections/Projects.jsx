@@ -95,12 +95,12 @@ const Projects = ({ openModal, setOpenModal }) => {
             ))}
           </Slider>
           <ArrowContainer>
-            <Arrow onClick={() => sliderRef?.slickPrev()}>
+            <ArrowRight onClick={() => sliderRef?.slickPrev()}>
               <ChevronLeft />
-            </Arrow>
-            <Arrow onClick={() => sliderRef?.slickNext()}>
+            </ArrowRight>
+            <ArrowLeft onClick={() => sliderRef?.slickNext()}>
               <ChevronRight />
-            </Arrow>
+            </ArrowLeft>
           </ArrowContainer>
         </CarouselContainer>
       </Wrapper>
@@ -115,57 +115,61 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   position: relative;
   z-index: 1;
-  align-items: center;
-  padding: 60px 20px;
-  clip-path: polygon(0 0, 100% 0, 100% 100%, 100% 98%, 0 100%);
+  background-color: ${({ theme }) => theme.background_primary};
+  padding: 60px 10px;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+
+  @media (max-width: 768px) {
+    padding: 40px 5px;
+  }
 `;
 
 const Wrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
   width: 100%;
   max-width: 1200px;
-  padding: 40px 20px;
-  gap: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 10px;
+  gap: 15px;
 
-  /* ========== Mobile Devices (portrait and landscape) ========== */
-  @media only screen and (max-width: 767px) {
-    padding: 4rem 1rem;
-  }
-
-  /* ========== Tablet Devices (portrait and landscape) ========== */
-  @media only screen and (min-width: 768px) and (max-width: 1023px) {
-    padding: 4rem 1.5rem;
+  @media (max-width: 768px) {
+    padding: 40px 5px;
   }
 `;
 
-const Title = styled.div`
-  font-size: 56px;
+const Title = styled.h2`
+  font-size: 3.5rem;
   text-align: center;
   font-weight: 700;
   color: ${({ theme }) => theme.text_primary};
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 12px;
-  width: 100%;
-  margin: 0 auto;
+
   @media (max-width: 768px) {
-    font-size: 48px;
+    font-size: 3rem;
   }
 `;
 
-const Desc = styled.div`
+const Desc = styled.p`
   font-size: 1rem;
   text-align: center;
   font-weight: 500;
   color: ${({ theme }) => theme.text_secondary};
   margin-bottom: 0.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 0.875rem;
+    text-align: justify;
+    width: 90%;
+    margin: 0 auto;
+    line-height: 1.5rem;
+    letter-spacing: 0.2pt;
+  }
 `;
 
 const StatusLegend = styled.div`
@@ -184,7 +188,7 @@ const StatusItem = styled.div`
   font-size: 14px;
 `;
 
-const StatusDot = styled.div`
+const StatusDot = styled.span`
   width: 12px;
   height: 12px;
   border-radius: 50%;
@@ -249,40 +253,41 @@ const CarouselContainer = styled.div`
     }
   }
 
-  /* ========== Mobile Devices (portrait and landscape) ========== */
   @media only screen and (max-width: 767px) {
     padding: 0 0.625rem;
     margin-top: 1.25rem;
   }
 
-  /* ========== Tablet Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 768px) and (max-width: 1023px) {
     padding: 0 1rem;
   }
 
-  /* ========== Laptop Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 1024px) and (max-width: 1439px) {
     padding: 0 1.25rem;
   }
 
-  /* ========== Desktop Devices (portrait and landscape) ========== */
   @media only screen and (min-width: 1440px) {
     padding: 0 1.5625rem;
   }
 `;
 
 const ArrowContainer = styled.div`
-  position: relative;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
-  width: 100%;
-  max-width: 1100px;
-  margin-top: 32px;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
+  z-index: 10;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
-const Arrow = styled.div`
+const ArrowLeft = styled.div`
   width: 40px;
   height: 40px;
   background-color: ${({ theme }) => theme.card};
@@ -293,6 +298,31 @@ const Arrow = styled.div`
   cursor: pointer;
   transition: all 0.3s ease;
   color: ${({ theme }) => theme.text_primary};
+
+  &:hover {
+    background-color: ${({ theme }) => theme.primary};
+    color: white;
+    transform: scale(1.1);
+  }
+
+  @media (max-width: 768px) {
+    width: 35px;
+    height: 35px;
+  }
+`;
+
+const ArrowRight = styled.div`
+  width: 40px;
+  height: 40px;
+  background-color: ${({ theme }) => theme.card};
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: ${({ theme }) => theme.text_primary};
+
   &:hover {
     background-color: ${({ theme }) => theme.primary};
     color: white;
@@ -306,9 +336,11 @@ const Arrow = styled.div`
 `;
 
 const StyledFolderIcon = styled(FolderIcon)`
-  font-size: 56px !important;
+  font-size: 3rem !important;
   color: ${({ theme }) => theme.icon_color};
+
   @media (max-width: 768px) {
-    font-size: 40px !important;
+    font-size: 2.5rem !important;
   }
 `;
+
