@@ -100,11 +100,11 @@ export const skills = [
         image: "/assets/icons/vite.png",
       },
       {
-        name: "Visual Studio Code",
+        name: "VS Code",
         image: "/assets/icons/vscode.png",
       },
       {
-        name: "Visual Studio",
+        name: "VS 2022",
         image: "/assets/icons/visualstudio.png",
       },
       {
