@@ -15,7 +15,6 @@ export const Bio = {
 
 export const skills = [
   {
-    title: "Frontend",
     skills: [
       {
         name: "HTML",
@@ -49,11 +48,6 @@ export const skills = [
         name: "Next Js",
         image: "/assets/icons/next.png",
       },
-    ],
-  },
-  {
-    title: "Backend",
-    skills: [
       {
         name: "PHP",
         image: "/assets/icons/php.png",
@@ -78,11 +72,6 @@ export const skills = [
         name: "Firebase",
         image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
       },
-    ],
-  },
-  {
-    title: "Tools",
-    skills: [
       {
         name: "Git",
         image: "/assets/icons/git.png",
