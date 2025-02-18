@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { skills } from "../../data/constants";
 import BuildIcon from "@mui/icons-material/Build";
 
@@ -12,27 +12,23 @@ const Skills = () => {
           Skills
         </Title>
         <Desc>Technologies and Tools I work with</Desc>
-        {skills.map((skill, index) => (
-          <SkillSection key={`skill-section-${index}`}>
-            <SkillTitle>{skill.title}</SkillTitle>
-            <Slider>
-              <MaskLeft />
-              <SlideTrack>
-                {Array(skill.skills.length).fill(
-                  skill.skills.map((item, index) => (
-                    <SkillItem key={`skill-${index}`}>
-                      <SkillImage src={item.image} alt={item.name} />
-                      <CustomTooltip className="tooltip">
-                        {item.name}
-                      </CustomTooltip>
-                    </SkillItem>
-                  ))
-                )}
-              </SlideTrack>
-              <MaskRight />
-            </Slider>
-          </SkillSection>
-        ))}
+        <SkillsContainer>
+          {skills.map((skill, index) => (
+            <SkillSection key={`skill-section-${index}`}>
+              <SkillTitle>{skill.title}</SkillTitle>
+              <SkillList>
+                {skill.skills.map((item, index) => (
+                  <SkillItem key={`skill-${index}`}>
+                    <SkillImage src={item.image} alt={item.name} />
+                    <CustomTooltip className="tooltip">
+                      {item.name}
+                    </CustomTooltip>
+                  </SkillItem>
+                ))}
+              </SkillList>
+            </SkillSection>
+          ))}
+        </SkillsContainer>
       </Wrapper>
     </Container>
   );
@@ -47,9 +43,13 @@ const Container = styled.div`
   align-items: center;
   position: relative;
   z-index: 1;
-  background-color: ${({ theme }) => theme.background_secondary};
-  padding: 60px 20px;
+  background-color: transparent;
+  padding: 20px 10px;
   border-radius: 12px;
+
+  @media (min-width: 768px) {
+    padding: 60px 20px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -60,13 +60,12 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1440px;
   gap: 0.75rem;
-  padding: 40px 20px;
-  background-color: ${({ theme }) => theme.background_primary};
+  padding: 10px;
+  background-color: transparent;
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 
-  @media (max-width: 768px) {
-    padding: 5px 0;
+  @media (min-width: 768px) {
+    padding: 40px 20px;
   }
 `;
 
@@ -98,92 +97,84 @@ const Desc = styled.div`
   }
 `;
 
+const SkillsContainer = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem 0;
+`;
+
 const SkillSection = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 20px;
-  background: ${({ theme }) => theme.background_light};
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-  margin-bottom: 20px;
-`;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: transparent;
+  border-radius: 12px;
 
-const SkillTitle = styled.div`
-  font-size: 32px;
-  font-weight: 900;
-  margin-bottom: 20px;
-  text-align: center;
-  color: ${({ theme }) => theme.text_primary};
-`;
-
-const Slider = styled.div`
-  display: flex;
-  overflow: hidden;
-  width: 100%;
-  position: relative;
-`;
-
-const slide = keyframes`
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-100%); }
-`;
-
-const SlideTrack = styled.div`
-  display: flex;
-  gap: 20px;
-  width: calc(200%);
-  animation: ${slide} 20s linear infinite;
-  &:hover {
-    animation-play-state: paused;
+  @media (min-width: 768px) {
+    gap: 1rem;
+    padding: 1.5rem;
   }
 `;
 
-const MaskLeft = styled.div`
-  position: absolute;
-  left: 0;
-  width: 50px;
-  height: 100%;
-  background: linear-gradient(
-    to right,
-    ${({ theme }) => theme.background_secondary},
-    transparent
-  );
-  pointer-events: none;
+const SkillTitle = styled.div`
+  font-size: 28px;
+  font-weight: 800;
+  color: ${({ theme }) => theme.text_primary};
+  text-align: center;
+  margin-bottom: 1rem;
 `;
 
-const MaskRight = styled.div`
-  position: absolute;
-  right: 0;
-  width: 50px;
-  height: 100%;
-  background: linear-gradient(
-    to left,
-    ${({ theme }) => theme.background_secondary},
-    transparent
-  );
-  pointer-events: none;
+const SkillList = styled.div`
+  display: grid;
+  grid-auto-flow: row;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  justify-items: center;
+  padding: 0.5rem;
+  background: transparent;
+
+  @media (min-width: 480px) {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    padding: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 1280px) {
+    grid-template-columns: repeat(8, 1fr);
+  }
 `;
 
 const SkillItem = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
-  flex-shrink: 0;
-  border: 2px solid ${({ theme }) => theme.border_primary};
+  width: 65px;
+  height: 65px;
   border-radius: 12px;
-  padding: 14px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
-  cursor: help;
+  background-color: #151b28;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 0.75rem;
+  transition: all 0.3s ease;
   position: relative;
+  cursor: pointer;
 
   &:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-    background-color: ${({ theme }) => theme.background_hover};
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background-color: #1a2232;
   }
 
   &:hover .tooltip {
@@ -191,24 +182,38 @@ const SkillItem = styled.div`
     opacity: 1;
   }
 
-  @media (max-width: 768px) {
-    width: 100px;
-    height: 100px;
+  @media (min-width: 480px) {
+    width: 75px;
+    height: 75px;
+    padding: 0.875rem;
+  }
+
+  @media (min-width: 768px) {
+    width: 85px;
+    height: 85px;
+    padding: 1rem;
+  }
+
+  @media (min-width: 1024px) {
+    width: 90px;
+    height: 90px;
   }
 `;
 
 const SkillImage = styled.img`
-  width: 100%;
-  height: 100%;
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
   transition: transform 0.2s ease;
+  filter: brightness(1);
 
   ${SkillItem}:hover & {
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
 
-  @media (max-width: 768px) {
-    width: 80%;
-    height: 80%;
+  @media (min-width: 768px) {
+    width: 75%;
+    height: 75%;
   }
 `;
 
